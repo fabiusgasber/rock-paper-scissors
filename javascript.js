@@ -56,6 +56,10 @@ function game() {
             console.log("Computer wins after 5 rounds");
         }
 
+        else if (i === 4 && playerScore === computerScore) {
+            console.log("It's a tie after 5 rounds");
+        }
+
         else if (result.includes("win")) {
             playerScore++;
         } 
