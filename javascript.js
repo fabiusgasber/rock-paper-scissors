@@ -22,9 +22,7 @@ function getPlayerChoice() {
 
 function playRound(playerChoice, computerChoice) {
 
-    if (playerChoice === "rock" && computerChoice === "rock" || 
-        playerChoice === "paper" && computerChoice === "paper" || 
-        playerChoice === "scissors" && computerChoice === "scissors") {
+    if (playerChoice === computerChoice) {
             return `Tie! Player selected: ${playerChoice} computer selected: ${computerChoice}`;
         }
     
