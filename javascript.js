@@ -1,36 +1,37 @@
 function getComputerChoice() {
     let choice = Math.floor(Math.random()*3);
+    let selection = "";
 
     if (choice === 0) {
-        return "Rock";
+        selection = "rock";
     }
 
     else if (choice === 1){
-        return "Paper";
+        selection = "paper";
     }
 
     else {
-        return "Scissors";
+        selection = "scissors";
     }
+    return selection.toLowerCase();
 }
 
 function playRound(playerChoice, computerChoice) {
     let playerSelection = playerChoice.toLowerCase();
-    let computerSelection = computerChoice.toLowerCase();
 
-    if (playerSelection === "rock" && computerSelection === "rock" || 
-        playerSelection === "paper" && computerSelection === "paper" || 
-        playerSelection === "scissors" && computerSelection === "scissors") {
-            return `Tie! Player selected: ${playerSelection} computer selected: ${computerSelection}`;
+    if (playerSelection === "rock" && computerChoice === "rock" || 
+        playerSelection === "paper" && computerChoice === "paper" || 
+        playerSelection === "scissors" && computerChoice === "scissors") {
+            return `Tie! Player selected: ${playerSelection} computer selected: ${computerChoice}`;
         }
     
-    else if (playerSelection === "rock" && computerSelection === "scissors" || 
-             playerSelection === "paper" && computerSelection === "rock" || 
-             playerSelection === "scissors" && computerSelection === "paper") {
-                return `You win! ${playerSelection} beats ${computerSelection}`;
+    else if (playerSelection === "rock" && computerChoice === "scissors" || 
+             playerSelection === "paper" && computerChoice === "rock" || 
+             playerSelection === "scissors" && computerChoice === "paper") {
+                return `You win! ${playerSelection} beats ${computerChoice}`;
              }
     else {
-        return `You lose! ${computerSelection} beats ${playerSelection}`
+        return `You lose! ${computerChoice} beats ${playerSelection}`
     }
 }
 
