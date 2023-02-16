@@ -35,7 +35,26 @@ function playRound(playerChoice, computerChoice) {
 }
 
 function game() {
+    playerScore = 0;
+    computerScore = 0;
     for (let i = 0; i < 5; i++) {
-        console.log(playRound(prompt("Whats your choice?"), getComputerChoice()));
+        let playerSelection = prompt("Rock, paper, scisscors?");
+        let computerSelection = getComputerChoice()
+        let result = playRound(playerSelection, computerSelection);
+        console.log(result);
+        if (i === 4 && playerScore > computerScore) {
+            console.log("Player wins after 5 rounds");
+        }
+        else if (i === 4 && playerScore < computerScore) {
+            console.log("Computer wins after 5 rounds");
+        }
+        else if (result.includes("win")) {
+            playerScore++;
+        } 
+        else if (result.includes("lose")) {
+            computerScore++;
+        } 
     }
 }
+
+game();
