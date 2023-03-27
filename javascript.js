@@ -35,14 +35,26 @@ function checkSelections(playerChoice, computerChoice) {
              playerChoice === "paper" && computerChoice === "rock" || 
              playerChoice === "scissors" && computerChoice === "paper") {
              result.textContent = `You won! Player selected: ${playerChoice} Computer selected: ${computerChoice}`;
-             playerScore.textContent = parseInt(playerScore.textContent) + 1;
+             if (++playerScore.textContent === 5){
+                result.textContent = `Player won after 5 rounds`;
+                const buttons = document.querySelectorAll('button');
+                buttons.forEach((button) => {
+                    button.removeEventListener('click', playRound)
+                });
+             };
              }
     else if (playerChoice === computerChoice) {
         result.textContent = `Tie! Player selected: ${playerChoice} Computer selected: ${computerChoice}`;
     }
     else {
         result.textContent = `You lose! Player selected: ${playerChoice} Computer selected: ${computerChoice}`;
-        compScore.textContent = parseInt(compScore.textContent) + 1;
+        if (++compScore.textContent === 5){
+            result.textContent = `Computer won after 5 rounds`;
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach((button) => {
+                button.removeEventListener('click', playRound)
+            });
+         };
     }
 }
 
