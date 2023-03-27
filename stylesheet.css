@@ -2,4 +2,18 @@ body{
     background-color: #000b1c;
     text-align: center;
     color: beige;
+    margin: 10em;
+}
+
+button{
+    padding: 1em 2em;
+    margin-bottom: 5em;
+}
+
+div{
+    margin-top: 2em;
+}
+
+p{
+    display: inline;
 }
