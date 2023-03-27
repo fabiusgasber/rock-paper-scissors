@@ -1,3 +1,9 @@
+const buttons = document.querySelectorAll('button');
+const result = document.querySelector('#result');
+const endResult = document.querySelector('#endResult');
+const playerScore = document.querySelector('#playerScore');
+const compScore = document.querySelector('#compScore');
+
 function getComputerChoice() {
     let choice = Math.floor(Math.random()*3);
     let selection = "";
@@ -17,14 +23,12 @@ function getComputerChoice() {
 }
 
 function setButtonListener() {
-    const buttons = document.querySelectorAll('button');
         buttons.forEach((button) => {
             button.addEventListener('click', playRound)
         });
 }
 
 function removeButtonListener(){
-    const buttons = document.querySelectorAll('button');
                 buttons.forEach((button) => {
                     button.removeEventListener('click', playRound)
                 });
@@ -35,10 +39,6 @@ function playRound(e) {
 }
 
 function checkSelections(playerChoice, computerChoice) {
-    const result = document.querySelector('#result');
-    const endResult = document.querySelector('#endResult');
-    const playerScore = document.querySelector('#playerScore');
-    const compScore = document.querySelector('#compScore');
     if (playerChoice === "👊🏼" && computerChoice === "✌🏼" || 
              playerChoice === "🖐🏼" && computerChoice === "👊🏼" || 
              playerChoice === "✌🏼" && computerChoice === "🖐🏼") {
