@@ -23,6 +23,13 @@ function setButtonListener() {
         });
 }
 
+function removeButtonListener(){
+    const buttons = document.querySelectorAll('button');
+                buttons.forEach((button) => {
+                    button.removeEventListener('click', playRound)
+                });
+}
+
 function playRound(e) {
         checkSelections(e.target.textContent.toLowerCase(), getComputerChoice());
 }
@@ -37,10 +44,7 @@ function checkSelections(playerChoice, computerChoice) {
              result.textContent = `You won! Player selected: ${playerChoice} Computer selected: ${computerChoice}`;
              if (++playerScore.textContent === 5){
                 result.textContent = `Player won after 5 rounds`;
-                const buttons = document.querySelectorAll('button');
-                buttons.forEach((button) => {
-                    button.removeEventListener('click', playRound)
-                });
+                removeButtonListener();
              };
              }
     else if (playerChoice === computerChoice) {
@@ -50,10 +54,7 @@ function checkSelections(playerChoice, computerChoice) {
         result.textContent = `You lose! Player selected: ${playerChoice} Computer selected: ${computerChoice}`;
         if (++compScore.textContent === 5){
             result.textContent = `Computer won after 5 rounds`;
-            const buttons = document.querySelectorAll('button');
-            buttons.forEach((button) => {
-                button.removeEventListener('click', playRound)
-            });
+            removeButtonListener();
          };
     }
 }
