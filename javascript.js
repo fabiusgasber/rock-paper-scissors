@@ -36,6 +36,7 @@ function playRound(e) {
 
 function checkSelections(playerChoice, computerChoice) {
     const result = document.querySelector('#result');
+    const endResult = document.querySelector('#endResult');
     const playerScore = document.querySelector('#playerScore');
     const compScore = document.querySelector('#compScore');
     if (playerChoice === "👊🏼" && computerChoice === "✌🏼" || 
@@ -43,7 +44,7 @@ function checkSelections(playerChoice, computerChoice) {
              playerChoice === "✌🏼" && computerChoice === "🖐🏼") {
              result.textContent = `You won! Player selected: ${playerChoice} Computer selected: ${computerChoice}`;
              if (++playerScore.textContent === 5){
-                result.textContent = `Player won after 5 rounds`;
+                endResult.textContent = `Player won after 5 rounds`;
                 removeButtonListener();
              };
              }
@@ -53,7 +54,7 @@ function checkSelections(playerChoice, computerChoice) {
     else {
         result.textContent = `You lose! Player selected: ${playerChoice} Computer selected: ${computerChoice}`;
         if (++compScore.textContent === 5){
-            result.textContent = `Computer won after 5 rounds`;
+            endResult.textContent = `Computer won after 5 rounds`;
             removeButtonListener();
          };
     }
