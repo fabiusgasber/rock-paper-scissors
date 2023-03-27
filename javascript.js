@@ -3,15 +3,15 @@ function getComputerChoice() {
     let selection = "";
 
     if (choice === 0) {
-        selection = "rock";
+        selection = "👊🏼";
     }
 
     else if (choice === 1){
-        selection = "paper";
+        selection = "🖐🏼";
     }
 
     else {
-        selection = "scissors";
+        selection = "✌🏼";
     }
     return selection.toLowerCase();
 }
@@ -38,9 +38,9 @@ function checkSelections(playerChoice, computerChoice) {
     const result = document.querySelector('#result');
     const playerScore = document.querySelector('#playerScore');
     const compScore = document.querySelector('#compScore');
-    if (playerChoice === "rock" && computerChoice === "scissors" || 
-             playerChoice === "paper" && computerChoice === "rock" || 
-             playerChoice === "scissors" && computerChoice === "paper") {
+    if (playerChoice === "👊🏼" && computerChoice === "✌🏼" || 
+             playerChoice === "🖐🏼" && computerChoice === "👊🏼" || 
+             playerChoice === "✌🏼" && computerChoice === "🖐🏼") {
              result.textContent = `You won! Player selected: ${playerChoice} Computer selected: ${computerChoice}`;
              if (++playerScore.textContent === 5){
                 result.textContent = `Player won after 5 rounds`;
