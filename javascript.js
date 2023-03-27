@@ -16,22 +16,21 @@ function getComputerChoice() {
     return selection.toLowerCase();
 }
 
-function getPlayerChoice() {
+function setButtonListener() {
     const buttons = document.querySelectorAll('button');
         buttons.forEach((button) => {
-            button.addEventListener('click', buttonListener)
+            button.addEventListener('click', playRound)
         });
 }
 
-function buttonListener(e) {
-        playRound(e.target.textContent.toLowerCase(), getComputerChoice());
+function playRound(e) {
+        checkSelections(e.target.textContent.toLowerCase(), getComputerChoice());
 }
 
-function playRound(playerChoice, computerChoice) {
+function checkSelections(playerChoice, computerChoice) {
     const result = document.querySelector('#result');
     if (playerChoice === computerChoice) {
             result.textContent = `Tie! Player selected: ${playerChoice} Computer selected: ${computerChoice}`;
-            
         }
     
     else if (playerChoice === "rock" && computerChoice === "scissors" || 
@@ -44,4 +43,4 @@ function playRound(playerChoice, computerChoice) {
     }
 }
 
-getPlayerChoice();
+setButtonListener();
