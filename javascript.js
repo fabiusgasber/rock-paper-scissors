@@ -29,16 +29,20 @@ function playRound(e) {
 
 function checkSelections(playerChoice, computerChoice) {
     const result = document.querySelector('#result');
+    const playerScore = document.querySelector('#playerScore');
+    const compScore = document.querySelector('#compScore');
     if (playerChoice === "rock" && computerChoice === "scissors" || 
              playerChoice === "paper" && computerChoice === "rock" || 
              playerChoice === "scissors" && computerChoice === "paper") {
              result.textContent = `You won! Player selected: ${playerChoice} Computer selected: ${computerChoice}`;
+             playerScore.textContent = parseInt(playerScore.textContent) + 1;
              }
     else if (playerChoice === computerChoice) {
         result.textContent = `Tie! Player selected: ${playerChoice} Computer selected: ${computerChoice}`;
     }
     else {
         result.textContent = `You lose! Player selected: ${playerChoice} Computer selected: ${computerChoice}`;
+        compScore.textContent = parseInt(compScore.textContent) + 1;
     }
 }
 
