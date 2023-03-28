@@ -42,21 +42,33 @@ function checkSelections(playerChoice, computerChoice) {
     if (playerChoice === "👊🏼" && computerChoice === "✌🏼" || 
              playerChoice === "🖐🏼" && computerChoice === "👊🏼" || 
              playerChoice === "✌🏼" && computerChoice === "🖐🏼") {
-             result.textContent = `You won! Player selected: ${playerChoice} Computer selected: ${computerChoice}`;
+             displayResult("win", playerChoice, computerChoice)
              if (++playerScore.textContent === 5){
                 alert(`Player won ${playerScore.textContent} to ${compScore.textContent}`);
                 removeButtonListener();
-             };
+             }
              }
     else if (playerChoice === computerChoice) {
+        displayResult("tie", playerChoice, computerChoice);
+    }
+    else {
+        displayResult("lose", playerChoice, computerChoice);
+        if (++compScore.textContent === 5){
+            alert(`Computer won ${compScore.textContent} to ${playerScore.textContent}`);
+            removeButtonListener();
+         }
+    }
+}
+
+function displayResult(id, playerChoice, computerChoice){
+    if(id === "win"){
+        result.textContent = `You won! Player selected: ${playerChoice} Computer selected: ${computerChoice}`;
+    }
+    else if(id === "tie"){
         result.textContent = `Tie! Player selected: ${playerChoice} Computer selected: ${computerChoice}`;
     }
     else {
         result.textContent = `You lose! Player selected: ${playerChoice} Computer selected: ${computerChoice}`;
-        if (++compScore.textContent === 5){
-            alert(`Computer won ${compScore.textContent} to ${playerScore.textContent}`);
-            removeButtonListener();
-         };
     }
 }
 
