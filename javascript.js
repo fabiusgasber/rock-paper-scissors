@@ -44,7 +44,7 @@ function checkSelections(playerChoice, computerChoice) {
              playerChoice === "✌🏼" && computerChoice === "🖐🏼") {
              result.textContent = `You won! Player selected: ${playerChoice} Computer selected: ${computerChoice}`;
              if (++playerScore.textContent === 5){
-                endResult.textContent = `Player won after 5 rounds`;
+                alert(`Player won ${playerScore.textContent} to ${compScore.textContent}`);
                 removeButtonListener();
              };
              }
@@ -54,7 +54,7 @@ function checkSelections(playerChoice, computerChoice) {
     else {
         result.textContent = `You lose! Player selected: ${playerChoice} Computer selected: ${computerChoice}`;
         if (++compScore.textContent === 5){
-            endResult.textContent = `Computer won after 5 rounds`;
+            alert(`Computer won ${compScore.textContent} to ${playerScore.textContent}`);
             removeButtonListener();
          };
     }
