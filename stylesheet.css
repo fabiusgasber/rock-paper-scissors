@@ -7,6 +7,21 @@ body{
 
 button{
     padding: 1em 2em;
+    font-size: 20px;
+    background-color: #4CAF50;
+    border: none;
+    text-decoration: none;
+    border-radius: 12px;
+    margin: 0.5em;
+    transition-duration: 0.4s;
+}
+
+button:hover{
+    background-color: wheat;
+}
+
+button:active{
+    transform: translateY(4px);
 }
 
 div{
